@@ -1,0 +1,124 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:padding="16dp"
+    android:layout_height="wrap_content">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="16dp"
+            android:textStyle="bold"
+            android:text="Complete All Fields Below"
+            android:textSize="25sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:padding="4dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight=".3"
+                android:gravity="center_vertical"
+                android:layout_height="match_parent"
+                android:text="First Name:"
+                android:textSize="15sp" />
+            <EditText
+                android:id="@+id/contact_information_first_name_edit"
+                android:layout_width="0dp"
+                android:layout_weight=".7"
+                android:layout_height="wrap_content"
+                android:hint="Joe" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:padding="4dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight=".3"
+                android:gravity="center_vertical"
+                android:layout_height="match_parent"
+                android:text="Last Name:"
+                android:textSize="15sp" />
+            <EditText
+                android:layout_width="0dp"
+                android:layout_weight=".7"
+                android:id="@+id/contact_information_last_name_edit"
+                android:layout_height="wrap_content"
+                android:hint="Smith" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:padding="4dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight=".3"
+                android:gravity="center_vertical"
+                android:layout_height="match_parent"
+                android:text="Phone #:"
+                android:textSize="15sp" />
+            <EditText
+                android:layout_width="0dp"
+                android:layout_weight=".7"
+                android:inputType="number"
+                android:layout_height="wrap_content"
+                android:hint="708.699.4396" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:padding="4dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight=".3"
+                android:gravity="center_vertical"
+                android:layout_height="match_parent"
+                android:text="Fax:"
+                android:textSize="15sp" />
+            <EditText
+                android:layout_width="0dp"
+                android:layout_weight=".7"
+                android:layout_height="wrap_content"
+                android:hint="Enter Your First Name" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:padding="4dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight=".3"
+                android:gravity="center_vertical"
+                android:layout_height="match_parent"
+                android:text="Last Name:"
+                android:textSize="15sp" />
+            <EditText
+                android:layout_width="0dp"
+                android:layout_weight=".7"
+                android:layout_height="wrap_content"
+                android:hint="Enter Your First Name" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/contact_information_save_data_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="16dp"
+            android:background="@drawable/roundedbutton"
+            android:text="Save Data" />
+    </LinearLayout>
+
+</ScrollView>
+

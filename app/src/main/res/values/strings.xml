@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">CoverLetterMaker</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="objective_text">Objective</string>
+    <string name="contact_info_text">Contact Information</string>
+    <string name="employment_history_text">Employment History</string>
+    <string name="prospective_employment_text">Prospective Employment</string>
+    <string name="recruiter_text">Recruiter Information</string>
+    <string name="review_text">Review Information</string>
+    <string name="first_name_label">First Name</string>
+
+</resources>
