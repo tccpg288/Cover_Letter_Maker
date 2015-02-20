@@ -17,6 +17,7 @@ public class CoverLetterActivity extends ActionBarActivity {
     Button mProspectiveJobButton;
     Button mRecruiterInfoButton;
     Button mReviewInfoButton;
+    Button mReviewInfoButtonAgain;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
