@@ -10,6 +10,23 @@
     <string name="prospective_employment_text">Prospective Employment</string>
     <string name="recruiter_text">Recruiter Information</string>
     <string name="review_text">Review Information</string>
-    <string name="first_name_label">First Name</string>
+    <string name="first_name_label">First Name:</string>
+    <string name="Review_Header">Cover Letter Summary</string>
+    <string name="last_name_label">Last Name:</string>
+    <string name="address_label">Address:</string>
+    <string name="city_state_label">City, State:</string>
+    <string name="zip_code_label">Zip Code:</string>
+    <string name="phone_number_label">Phone Number:</string>
+    <string name="fax_number_label">Fax Number:</string>
+    <string name="current_employer_label">Current Employer:</string>
+    <string name="current_position_label">Current Position:</string>
+    <string name="current_salaray_label">Current Salary:</string>
+    <string name="current_responsibility_label">Current Responsibility</string>
+    <string name="years_experience_label">Years Experience:</string>
+    <string name="desired_position_label">Desired Position:</string>
+    <string name="recruiter_name_label">Recruiter Name:</string>
+    <string name="recruiter_email_label">Recruiter E-Mail:</string>
+    <string name="job_source_label">Job Source:</string>
+    <string name="start_date_label">Available Start Date:</string>
 
 </resources>

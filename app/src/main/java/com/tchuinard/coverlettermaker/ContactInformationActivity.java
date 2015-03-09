@@ -1,11 +1,14 @@
 package com.tchuinard.coverlettermaker;
 
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
+
+import com.tchuinard.coverlettermaker.service.CoverLetterService;
+import com.tchuinard.coverletterpro.R;
 
 
 /**
@@ -18,31 +21,53 @@ public class ContactInformationActivity extends ActionBarActivity {
     EditText mCityState;
     EditText mZipCode;
     EditText mPhoneNumber;
+    EditText mFaxNumber;
 
     Button mSaveButton;
 
-    SharedPreferences mPreferences;
+    CoverLetter mCoverLetter;
+    CoverLetterService mService;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        overridePendingTransition(R.anim.fadein, R.anim.fadeout);
         setContentView(R.layout.activity_contact_information);
-        mPreferences = getSharedPreferences("prefs", MODE_PRIVATE);
+
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
+
+
         mSaveButton = (Button) findViewById(R.id.contact_information_save_data_button);
+
         mFirstName = (EditText) findViewById(R.id.contact_information_first_name_edit);
         mLastName = (EditText) findViewById(R.id.contact_information_last_name_edit);
+        mPhoneNumber = (EditText) findViewById(R.id.phone_number);
+        mAddress = (EditText) findViewById(R.id.address);
+        mCityState = (EditText) findViewById(R.id.city_state);
+        mZipCode = (EditText) findViewById(R.id.zip_code);
+        mFaxNumber = (EditText) findViewById(R.id.ci_fax_number);
 
-        mFirstName.setText(mPreferences.getString("First_Name", ""));
-        mLastName.setText(mPreferences.getString("Last_Name", ""));
+        mCoverLetter = mService.loadEntireCoverLetter();
+
 
         mSaveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mPreferences.edit()
-                        .putString("First_Name", mFirstName.getText().toString())
-                        .putString("Last_Name", mLastName.getText().toString())
-                        .commit();
+
+                mCoverLetter.setFirstName(mFirstName.getText().toString());
+                mCoverLetter.setLastName(mLastName.getText().toString());
+                mCoverLetter.setPhoneNumber(mPhoneNumber.getText().toString());
+                mCoverLetter.setAddress(mAddress.getText().toString());
+                mCoverLetter.setCityState(mCityState.getText().toString());
+                mCoverLetter.setZipCode(mZipCode.getText().toString());
+                mCoverLetter.setFaxNumber(mFaxNumber.getText().toString());
+
+                mService.saveCoverLetter(mCoverLetter);
+
             }
         });
+
+
+
     }
 }

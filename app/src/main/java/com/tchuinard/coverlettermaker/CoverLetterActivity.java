@@ -9,20 +9,22 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.tchuinard.coverletterpro.R;
+
 
 public class CoverLetterActivity extends ActionBarActivity {
+
 
     Button mContactInfoButton;
     Button mWorkHistoryButton;
     Button mProspectiveJobButton;
-    Button mRecruiterInfoButton;
     Button mReviewInfoButton;
-    Button mReviewInfoButtonAgain;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cover_letter);
+
 
         View.OnClickListener clickListener = new View.OnClickListener() {
             @Override
@@ -31,6 +33,15 @@ public class CoverLetterActivity extends ActionBarActivity {
                 switch (buttonId) {
                     case R.id.contact_information_button:
                         startActivity(new Intent(CoverLetterActivity.this, ContactInformationActivity.class));
+                        break;
+                    case R.id.employment_history_button:
+                        startActivity(new Intent(CoverLetterActivity.this, EmploymentHistoryActivity.class));
+                        break;
+                    case R.id.prospective_employment_button:
+                        startActivity(new Intent(CoverLetterActivity.this, ProspectiveEmploymentActivity.class));
+                        break;
+                    case R.id.review_information_button:
+                        startActivity(new Intent(CoverLetterActivity.this, ReviewInformationActivity.class));
                         break;
                     default:
                         Toast.makeText(CoverLetterActivity.this, "Not implemented yet.", Toast.LENGTH_LONG).show();
@@ -42,13 +53,11 @@ public class CoverLetterActivity extends ActionBarActivity {
         mContactInfoButton = (Button) findViewById(R.id.contact_information_button);
         mWorkHistoryButton = (Button) findViewById(R.id.employment_history_button);
         mProspectiveJobButton = (Button) findViewById(R.id.prospective_employment_button);
-        mRecruiterInfoButton = (Button) findViewById(R.id.recruiter_button);
-        mReviewInfoButton = (Button) findViewById(R.id.recruiter_button);
+        mReviewInfoButton = (Button) findViewById(R.id.review_information_button);
 
         mContactInfoButton.setOnClickListener(clickListener);
         mWorkHistoryButton.setOnClickListener(clickListener);
         mProspectiveJobButton.setOnClickListener(clickListener);
-        mRecruiterInfoButton.setOnClickListener(clickListener);
         mReviewInfoButton.setOnClickListener(clickListener);
     }
 

@@ -11,19 +11,20 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/white"
         android:orientation="vertical">
 
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background = "@drawable/roundedbutton"
+            android:background = "@drawable/button_click"
             android:id="@+id/contact_information_button"
             android:text="@string/contact_info_text"
             />
 
         <Button
             android:layout_width="match_parent"
-            android:background = "@drawable/roundedbutton"
+            android:background = "@drawable/button_click"
             android:layout_marginTop="6dp"
             android:layout_height="wrap_content"
             android:id="@+id/employment_history_button"
@@ -33,7 +34,7 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background = "@drawable/roundedbutton"
+            android:background = "@drawable/button_click"
             android:layout_marginTop="6dp"
             android:id="@+id/prospective_employment_button"
             android:text="@string/prospective_employment_text"
@@ -42,30 +43,19 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background = "@drawable/roundedbutton"
+            android:background = "@drawable/button_click"
             android:layout_marginTop="6dp"
-            android:id="@+id/recruiter_button"
-            android:text="@string/recruiter_text"
+            android:id="@+id/review_information_button"
+            android:text="Review Information"
             />
+
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:background = "@drawable/roundedbutton"
-            android:layout_marginTop="50dp"
-            android:id="@+id/review_button"
-            android:text="@string/review_text"
-            android:layout_gravity="bottom|center"
-            />
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:backgroundTint="@color/material_blue_grey_800"
-            android:background = "@drawable/roundedbutton"
-            android:layout_marginTop="15dp"
+            android:padding="25dp"
+            android:background = "@drawable/button_click"
+            android:layout_marginTop="60dp"
             android:id="@+id/review_button"
             android:text="Generate Cover Letter"
             android:layout_gravity="bottom|center"

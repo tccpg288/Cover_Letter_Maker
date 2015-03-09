@@ -17,12 +17,17 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ContactInformationActivity"
-            android:label="@string/app_name" >
-            <intent-filter>
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:name="com.tchuinard.coverlettermaker.ContactInformationActivity"
+            android:label="@string/app_name" />
+        <activity
+            android:name="com.tchuinard.coverlettermaker.EmploymentHistoryActivity"
+            android:label="@string/app_name" />
+        <activity
+            android:name="com.tchuinard.coverlettermaker.ProspectiveEmploymentActivity"
+            android:label="@string/app_name" />
+        <activity
+            android:name="com.tchuinard.coverlettermaker.ReviewInformationActivity"
+            android:label="@string/app_name" />
     </application>
 
 </manifest>

@@ -34,6 +34,7 @@ public class EmploymentHistoryActivity extends ActionBarActivity {
 
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
 
+        mSharedPreferences = getSharedPreferences("employment_prefs",MODE_PRIVATE);
         mCurrentEmployer = (EditText) findViewById(R.id.current_employer);
         mCurrentPosition = (EditText) findViewById(R.id.current_position);
         mCurrentSalary = (EditText) findViewById(R.id.current_salary);
@@ -45,7 +46,6 @@ public class EmploymentHistoryActivity extends ActionBarActivity {
         mSaveData.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                    mSharedPreferences = getApplicationContext().getSharedPreferences(MYPreferences,0);
                 SharedPreferences.Editor editorObject = mSharedPreferences.edit();
                 editorObject.putString("Current_Employer", mCurrentEmployer.getText().toString());
                 editorObject.putString("Current_Position", mCurrentPosition.getText().toString());
@@ -61,7 +61,7 @@ public class EmploymentHistoryActivity extends ActionBarActivity {
         mCurrentEmployer.setText(currentEmployer);
         String currentPosition = mSharedPreferences.getString("Current_Position", "");
         mCurrentPosition.setText(currentPosition);
-        String currentSalary = mSharedPreferences.getString("Current_Position", "");
+        String currentSalary = mSharedPreferences.getString("Current_Salary", "");
         mCurrentSalary.setText(currentSalary);
         String currentResponsibility = mSharedPreferences.getString("Current_Responsibility", "");
         mCurrent_Responsibility.setText(currentResponsibility);
