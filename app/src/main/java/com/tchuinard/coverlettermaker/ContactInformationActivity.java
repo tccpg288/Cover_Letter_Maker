@@ -15,6 +15,7 @@ import com.tchuinard.coverletterpro.R;
  * Created by tchuinard on 2/16/15.
  */
 public class ContactInformationActivity extends ActionBarActivity {
+
     EditText mFirstName;
     EditText mLastName;
     EditText mAddress;
@@ -58,11 +59,13 @@ public class ContactInformationActivity extends ActionBarActivity {
                 mCoverLetter.setLastName(mLastName.getText().toString());
                 mCoverLetter.setPhoneNumber(mPhoneNumber.getText().toString());
                 mCoverLetter.setAddress(mAddress.getText().toString());
-                mCoverLetter.setCityState(mCityState.getText().toString());
+                mCoverLetter.setCityState(mCityState.ge`tText().toString());
                 mCoverLetter.setZipCode(mZipCode.getText().toString());
                 mCoverLetter.setFaxNumber(mFaxNumber.getText().toString());
 
                 mService.saveCoverLetter(mCoverLetter);
+
+                finish();
 
             }
         });

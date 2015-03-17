@@ -46,27 +46,11 @@ public class ProspectiveEmploymentActivity extends ActionBarActivity {
         mSaveProspectiveEmployment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                SharedPreferences.Editor peEditorObject = peSharedPreferences.edit();
-                peEditorObject.putString("Desired_Position", mDesiredPosition.getText().toString());
-                peEditorObject.putString("Recruiter_Name", mRecruiterName.getText().toString());
-                peEditorObject.putString("Recruiter_Email", mRecruiterEMail.getText().toString());
-                peEditorObject.putString("Job_Source", mJobSource.getText().toString());
-                peEditorObject.putString("Start_Date", mStartDate.getText().toString());
-                peEditorObject.commit();
-                finish();
+
             }
         });
 
-        String savedDesiredPosition = peSharedPreferences.getString("Desired_Position","");
-        String savedRecruiterName = peSharedPreferences.getString("Recruiter_Name","");
-        String savedRecruiterEmail = peSharedPreferences.getString("Recruiter_Email","");
-        String savedJobSource = peSharedPreferences.getString("Job_Source","");
-        String savedStartDate = peSharedPreferences.getString("Start_Date","");
-        mDesiredPosition.setText(savedDesiredPosition);
-        mRecruiterName.setText(savedRecruiterName);
-        mRecruiterEMail.setText(savedRecruiterEmail);
-        mJobSource.setText(savedJobSource);
-        mStartDate.setText(savedStartDate);
+
 
     }
 }

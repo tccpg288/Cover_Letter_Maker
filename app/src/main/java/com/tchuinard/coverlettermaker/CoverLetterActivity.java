@@ -20,10 +20,14 @@ public class CoverLetterActivity extends ActionBarActivity {
     Button mProspectiveJobButton;
     Button mReviewInfoButton;
 
+    public CoverLetter mCoverLetter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cover_letter);
+
+        mCoverLetter = new CoverLetter();
 
 
         View.OnClickListener clickListener = new View.OnClickListener() {
