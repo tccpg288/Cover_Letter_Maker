@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.tchuinard.coverlettermaker.service.CoverLetterService;
 import com.tchuinard.coverletterpro.R;
 
 
@@ -21,14 +22,14 @@ public class CoverLetterActivity extends ActionBarActivity {
     Button mReviewInfoButton;
 
     public CoverLetter mCoverLetter;
+    public CoverLetterService mCoverLetterService;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cover_letter);
 
-        mCoverLetter = new CoverLetter();
-
+        mCoverLetter = mCoverLetterService.loadEntireCoverLetter();
 
         View.OnClickListener clickListener = new View.OnClickListener() {
             @Override

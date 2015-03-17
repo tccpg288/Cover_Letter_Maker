@@ -11,7 +11,9 @@ import com.tchuinard.coverletterpro.R;
  * Created by tchuinard on 3/5/15.
  */
 public class ReviewInformationActivity extends ActionBarActivity {
-    CoverLetterService mService;
+
+    CoverLetter mCoverLetter;
+    CoverLetterService mCoverLetterService;
 
     TextView mSummaryFirstName;
     TextView mSummaryLastName;
@@ -36,16 +38,15 @@ public class ReviewInformationActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         overridePendingTransition(android.R.anim.slide_in_left, android.R.anim.slide_out_right);
         setContentView(R.layout.activity_review_information);
-        mService = new CoverLetterService(getApplicationContext());
         bindViews();
-        CoverLetter currentCoverLetter = mService.loadEntireCoverLetter();
-        updateScreenViews(currentCoverLetter);
-    }
 
-    private void updateScreenViews(CoverLetter currentCoverLetter) {
-        mSummaryFirstName.setText(currentCoverLetter.firstName);
-        mSummaryLastName.setText(currentCoverLetter.lastName);
-    }
+        mCoverLetter = mCoverLetterService.loadEntireCoverLetter();
+
+        mSummaryFirstName.setText(mCoverLetter.getFirstName());
+
+
+        }
+
 
     private void bindViews() {
         mSummaryFirstName = (TextView) findViewById(R.id.summary_first_name);
@@ -61,5 +62,9 @@ public class ReviewInformationActivity extends ActionBarActivity {
         mSummaryCurrentResponsibility = (TextView) findViewById(R.id.summary_current_responsibility);
         mSummaryYearsExperience = (TextView) findViewById(R.id.summary_years_experience);
         mSummaryDesiredPosition = (TextView) findViewById(R.id.summary_desired_position);
+        mSummaryRecruiterName = (TextView) findViewById(R.id.summary_recruiter_name);
+        mSummaryRecruiterEmail = (TextView) findViewById(R.id.summary_recruiter_email);
+        mSummaryJobSource = (TextView) findViewById(R.id.summary_job_source);
+        mSummaryAvailableStartDate = (TextView) findViewById(R.id.summary_start_date);
     }
 }

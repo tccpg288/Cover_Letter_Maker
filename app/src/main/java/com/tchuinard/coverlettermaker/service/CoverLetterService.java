@@ -2,6 +2,7 @@ package com.tchuinard.coverlettermaker.service;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.widget.EditText;
 
 import com.tchuinard.coverlettermaker.CoverLetter;
 
@@ -16,6 +17,10 @@ public class CoverLetterService {
         mPrefs = context.getSharedPreferences("prefs", Context.MODE_PRIVATE);
     }
 
+    public String convertEditTextoString(EditText currentEditText){
+          String newString = currentEditText.getText().toString();
+          return  newString;
+    }
 
     public void saveCoverLetter (CoverLetter coverLetterToSave) {
         saveKeyValue("First_Name", coverLetterToSave.getFirstName());

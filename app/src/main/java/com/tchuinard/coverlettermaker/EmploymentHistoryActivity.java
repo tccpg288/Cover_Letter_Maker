@@ -23,6 +23,9 @@ public class EmploymentHistoryActivity extends ActionBarActivity {
 
     Button mSaveData;
 
+    public CoverLetter mCoverLetter;
+    public CoverLetterService mCoverLetterService;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,6 +33,8 @@ public class EmploymentHistoryActivity extends ActionBarActivity {
         setContentView(R.layout.activity_employment_history);
 
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
+
+        mCoverLetter = mCoverLetterService.loadEntireCoverLetter();
 
         mCurrentEmployer = (EditText) findViewById(R.id.current_employer);
         mCurrentPosition = (EditText) findViewById(R.id.current_position);
@@ -42,20 +47,16 @@ public class EmploymentHistoryActivity extends ActionBarActivity {
         mSaveData.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                CoverLetter mCoverLetter = new CoverLetter();
-                CoverLetterService mCoverLetterService = new CoverLetterService();
-                mCoverLetter.setCurrentEmployer(mCurrentEmployer.getText().toString());
-                mCoverLetter.setCurrentPosition(mCurrentPosition.getText().toString());
-                mCoverLetter.setCurrentSalary(mCurrentSalary.getText().toString());
-                mCoverLetter.setCurrentResponsibility(mCurrent_Responsibility.getText().toString());
-                mCoverLetter.setYearsExperience(mYearsExperience.getText().toString());
+                mCoverLetter.setCurrentEmployer(mCoverLetterService.convertEditTextoString(mCurrentEmployer));
+                mCoverLetter.setCurrentPosition(mCoverLetterService.convertEditTextoString(mCurrentPosition));
+                mCoverLetter.setCurrentSalary(mCoverLetterService.convertEditTextoString(mCurrentSalary));
+                mCoverLetter.setCurrentResponsibility(mCoverLetterService.convertEditTextoString(mCurrent_Responsibility));
+                mCoverLetter.setYearsExperience(mCoverLetterService.convertEditTextoString(mYearsExperience));
                 mCoverLetterService.saveCoverLetter(mCoverLetter);
-
+                finish();
             }
 
         });
-
-
 
     }
 }

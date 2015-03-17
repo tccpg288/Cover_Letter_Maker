@@ -55,19 +55,7 @@ public class ContactInformationActivity extends ActionBarActivity {
             @Override
             public void onClick(View view) {
 
-                mCoverLetter.setFirstName(mFirstName.getText().toString());
-                mCoverLetter.setLastName(mLastName.getText().toString());
-                mCoverLetter.setPhoneNumber(mPhoneNumber.getText().toString());
-                mCoverLetter.setAddress(mAddress.getText().toString());
-                mCoverLetter.setCityState(mCityState.ge`tText().toString());
-                mCoverLetter.setZipCode(mZipCode.getText().toString());
-                mCoverLetter.setFaxNumber(mFaxNumber.getText().toString());
-
-                mService.saveCoverLetter(mCoverLetter);
-
-                finish();
-
-            }
+               }
         });
 
 
