@@ -40,11 +40,10 @@ public class ReviewInformationActivity extends ActionBarActivity {
         setContentView(R.layout.activity_review_information);
         bindViews();
 
+        mCoverLetterService = new CoverLetterService(getApplicationContext());
         mCoverLetter = mCoverLetterService.loadEntireCoverLetter();
 
-        mSummaryFirstName.setText(mCoverLetter.getFirstName());
-
-
+        setViews();
         }
 
 
@@ -66,5 +65,25 @@ public class ReviewInformationActivity extends ActionBarActivity {
         mSummaryRecruiterEmail = (TextView) findViewById(R.id.summary_recruiter_email);
         mSummaryJobSource = (TextView) findViewById(R.id.summary_job_source);
         mSummaryAvailableStartDate = (TextView) findViewById(R.id.summary_start_date);
+    }
+
+    private void setViews(){
+        mSummaryFirstName.setText(mCoverLetter.getFirstName());
+        mSummaryLastName.setText(mCoverLetter.getLastName());
+        mSummaryAddress.setText(mCoverLetter.getAddress());
+        mSummaryCityState.setText(mCoverLetter.getCityState());
+        mSummaryZipCode.setText(mCoverLetter.getZipCode());
+        mSummaryPhoneNumber.setText(mCoverLetter.getPhoneNumber());
+        mSummaryFaxNumber.setText(mCoverLetter.getFaxNumber());
+        mSummaryCurrentEmployer.setText(mCoverLetter.getCurrentEmployer());
+        mSummaryCurrentPosition.setText(mCoverLetter.getPosition());
+        mSummaryCurrentSalary.setText(mCoverLetter.getSalary());
+        mSummaryCurrentResponsibility.setText(mCoverLetter.getCurrentResponsibility());
+        mSummaryYearsExperience.setText(mCoverLetter.getYearsExperience());
+        mSummaryDesiredPosition.setText(mCoverLetter.getDesiredPosition());
+        mSummaryRecruiterName.setText(mCoverLetter.getRecruiterName());
+        mSummaryRecruiterEmail.setText(mCoverLetter.getRecruiterEmail());
+        mSummaryJobSource.setText(mCoverLetter.getJobSource());
+        mSummaryAvailableStartDate.setText(mCoverLetter.getStartDate());
     }
 }

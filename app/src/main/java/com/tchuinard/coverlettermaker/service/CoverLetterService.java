@@ -33,7 +33,7 @@ public class CoverLetterService {
         saveKeyValue("Current_Employer", coverLetterToSave.getCurrentEmployer());
         saveKeyValue("Current_Position", coverLetterToSave.getPosition());
         saveKeyValue("Current_Salary", coverLetterToSave.getSalary());
-        saveKeyValue("Current_Responsibility", coverLetterToSave.getSalary());
+        saveKeyValue("Current_Responsibility", coverLetterToSave.getCurrentResponsibility());
         saveKeyValue("Years_Experience", coverLetterToSave.getYearsExperience());
         saveKeyValue("Desired_Position", coverLetterToSave.getDesiredPosition());
         saveKeyValue("Recruiter_Name", coverLetterToSave.getRecruiterName());

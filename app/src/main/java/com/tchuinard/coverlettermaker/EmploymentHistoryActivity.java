@@ -31,18 +31,12 @@ public class EmploymentHistoryActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         overridePendingTransition(R.anim.fadein, R.anim.fadeout);
         setContentView(R.layout.activity_employment_history);
-
+        bindViews();
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
 
+        mCoverLetterService = new CoverLetterService(getApplicationContext());
         mCoverLetter = mCoverLetterService.loadEntireCoverLetter();
-
-        mCurrentEmployer = (EditText) findViewById(R.id.current_employer);
-        mCurrentPosition = (EditText) findViewById(R.id.current_position);
-        mCurrentSalary = (EditText) findViewById(R.id.current_salary);
-        mCurrent_Responsibility = (EditText) findViewById(R.id.current_responsibility);
-        mYearsExperience = (EditText) findViewById(R.id.years_experience);
-
-        mSaveData = (Button) findViewById(R.id.employment_history_save_data_button);
+        setViews();
 
         mSaveData.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -55,8 +49,23 @@ public class EmploymentHistoryActivity extends ActionBarActivity {
                 mCoverLetterService.saveCoverLetter(mCoverLetter);
                 finish();
             }
-
         });
+    }
 
+    public void bindViews(){
+        mCurrentEmployer = (EditText) findViewById(R.id.current_employer);
+        mCurrentPosition = (EditText) findViewById(R.id.current_position);
+        mCurrentSalary = (EditText) findViewById(R.id.current_salary);
+        mCurrent_Responsibility = (EditText) findViewById(R.id.current_responsibility);
+        mYearsExperience = (EditText) findViewById(R.id.years_experience);
+        mSaveData = (Button) findViewById(R.id.employment_history_save_data_button);
+    }
+
+    public void setViews(){
+        mCurrentEmployer.setText(mCoverLetter.getCurrentEmployer());
+        mCurrentPosition.setText(mCoverLetter.getPosition());
+        mCurrentSalary.setText(mCoverLetter.getSalary());
+        mCurrent_Responsibility.setText(mCoverLetter.getCurrentResponsibility());
+        mYearsExperience.setText(mCoverLetter.getYearsExperience());
     }
 }

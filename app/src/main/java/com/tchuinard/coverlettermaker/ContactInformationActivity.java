@@ -27,7 +27,7 @@ public class ContactInformationActivity extends ActionBarActivity {
     Button mSaveButton;
 
     CoverLetter mCoverLetter;
-    CoverLetterService mService;
+    CoverLetterService mCoverLetterService;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,9 +37,30 @@ public class ContactInformationActivity extends ActionBarActivity {
 
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
 
+        bindViews();
 
-        mSaveButton = (Button) findViewById(R.id.contact_information_save_data_button);
+        mCoverLetterService = new CoverLetterService(getApplicationContext());
+        mCoverLetter = mCoverLetterService.loadEntireCoverLetter();
 
+        setViews();
+
+        mSaveButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mCoverLetter.setFirstName(mCoverLetterService.convertEditTextoString(mFirstName));
+                mCoverLetter.setLastName(mCoverLetterService.convertEditTextoString(mLastName));
+                mCoverLetter.setAddress(mCoverLetterService.convertEditTextoString(mAddress));
+                mCoverLetter.setCityState(mCoverLetterService.convertEditTextoString(mCityState));
+                mCoverLetter.setZipCode(mCoverLetterService.convertEditTextoString(mZipCode));
+                mCoverLetter.setPhoneNumber(mCoverLetterService.convertEditTextoString(mPhoneNumber));
+                mCoverLetter.setFaxNumber(mCoverLetterService.convertEditTextoString(mFaxNumber));
+                mCoverLetterService.saveCoverLetter(mCoverLetter);
+                finish();
+               }
+        });
+    }
+
+    private void bindViews() {
         mFirstName = (EditText) findViewById(R.id.contact_information_first_name_edit);
         mLastName = (EditText) findViewById(R.id.contact_information_last_name_edit);
         mPhoneNumber = (EditText) findViewById(R.id.phone_number);
@@ -47,18 +68,17 @@ public class ContactInformationActivity extends ActionBarActivity {
         mCityState = (EditText) findViewById(R.id.city_state);
         mZipCode = (EditText) findViewById(R.id.zip_code);
         mFaxNumber = (EditText) findViewById(R.id.ci_fax_number);
+        mSaveButton = (Button) findViewById(R.id.contact_information_save_data_button);
 
-        mCoverLetter = mService.loadEntireCoverLetter();
+    }
 
-
-        mSaveButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-               }
-        });
-
-
-
+    private void setViews() {
+        mFirstName.setText(mCoverLetter.mFirstName);
+        mLastName.setText(mCoverLetter.mLastName);
+        mPhoneNumber.setText(mCoverLetter.mPhoneNumber);
+        mAddress.setText(mCoverLetter.mAddress);
+        mCityState.setText(mCoverLetter.mCityState);
+        mZipCode.setText(mCoverLetter.mZipCode);
+        mFaxNumber.setText(mCoverLetter.mFaxNumber);
     }
 }

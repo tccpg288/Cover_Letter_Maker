@@ -21,15 +21,19 @@ public class CoverLetterActivity extends ActionBarActivity {
     Button mProspectiveJobButton;
     Button mReviewInfoButton;
 
-    public CoverLetter mCoverLetter;
-    public CoverLetterService mCoverLetterService;
+    CoverLetter mCoverLetter;
+    CoverLetterService mCoverLetterService;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cover_letter);
 
+        bindViews();
+
+        mCoverLetterService = new CoverLetterService(getApplicationContext());
         mCoverLetter = mCoverLetterService.loadEntireCoverLetter();
+
 
         View.OnClickListener clickListener = new View.OnClickListener() {
             @Override
@@ -55,10 +59,6 @@ public class CoverLetterActivity extends ActionBarActivity {
         };
 
 
-        mContactInfoButton = (Button) findViewById(R.id.contact_information_button);
-        mWorkHistoryButton = (Button) findViewById(R.id.employment_history_button);
-        mProspectiveJobButton = (Button) findViewById(R.id.prospective_employment_button);
-        mReviewInfoButton = (Button) findViewById(R.id.review_information_button);
 
         mContactInfoButton.setOnClickListener(clickListener);
         mWorkHistoryButton.setOnClickListener(clickListener);
@@ -84,4 +84,12 @@ public class CoverLetterActivity extends ActionBarActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+    private void bindViews(){
+        mContactInfoButton = (Button) findViewById(R.id.contact_information_button);
+        mWorkHistoryButton = (Button) findViewById(R.id.employment_history_button);
+        mProspectiveJobButton = (Button) findViewById(R.id.prospective_employment_button);
+        mReviewInfoButton = (Button) findViewById(R.id.review_information_button);
+    }
+
 }
