@@ -8,7 +8,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="com.tchuinard.coverlettermaker.CoverLetterActivity"
+            android:name="com.tchuinard.coverlettermaker.activity.CoverLetterActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -17,16 +17,16 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.tchuinard.coverlettermaker.ContactInformationActivity"
+            android:name="com.tchuinard.coverlettermaker.activity.ContactInformationActivity"
             android:label="@string/app_name" />
         <activity
-            android:name="com.tchuinard.coverlettermaker.EmploymentHistoryActivity"
+            android:name="com.tchuinard.coverlettermaker.activity.EmploymentHistoryActivity"
             android:label="@string/app_name" />
         <activity
-            android:name="com.tchuinard.coverlettermaker.ProspectiveEmploymentActivity"
+            android:name="com.tchuinard.coverlettermaker.activity.ProspectiveEmploymentActivity"
             android:label="@string/app_name" />
         <activity
-            android:name="com.tchuinard.coverlettermaker.ReviewInformationActivity"
+            android:name="com.tchuinard.coverlettermaker.activity.ReviewInformationActivity"
             android:label="@string/app_name" />
     </application>
 

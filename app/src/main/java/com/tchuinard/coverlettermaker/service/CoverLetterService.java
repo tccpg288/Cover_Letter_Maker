@@ -4,11 +4,8 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.widget.EditText;
 
-import com.tchuinard.coverlettermaker.CoverLetter;
+import com.tchuinard.coverlettermaker.model.CoverLetter;
 
-/**
- * Created by tchuinard on 3/9/15.
- */
 public class CoverLetterService {
 
     SharedPreferences mPrefs;
@@ -18,8 +15,8 @@ public class CoverLetterService {
     }
 
     public String convertEditTextoString(EditText currentEditText){
-          String newString = currentEditText.getText().toString();
-          return  newString;
+        String newString = currentEditText.getText().toString();
+        return  newString;
     }
 
     public void saveCoverLetter (CoverLetter coverLetterToSave) {

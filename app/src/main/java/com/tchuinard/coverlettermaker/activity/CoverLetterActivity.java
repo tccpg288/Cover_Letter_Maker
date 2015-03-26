@@ -1,19 +1,18 @@
-package com.tchuinard.coverlettermaker;
+package com.tchuinard.coverlettermaker.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-import com.tchuinard.coverlettermaker.service.CoverLetterService;
+import com.tchuinard.coverlettermaker.model.CoverLetter;
 import com.tchuinard.coverletterpro.R;
 
 
-public class CoverLetterActivity extends ActionBarActivity {
+public class CoverLetterActivity extends AbstractCoverLetterActivity {
 
 
     Button mContactInfoButton;
@@ -22,7 +21,6 @@ public class CoverLetterActivity extends ActionBarActivity {
     Button mReviewInfoButton;
 
     CoverLetter mCoverLetter;
-    CoverLetterService mCoverLetterService;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,8 +29,7 @@ public class CoverLetterActivity extends ActionBarActivity {
 
         bindViews();
 
-        mCoverLetterService = new CoverLetterService(getApplicationContext());
-        mCoverLetter = mCoverLetterService.loadEntireCoverLetter();
+        mCoverLetter = mService.loadEntireCoverLetter();
 
 
         View.OnClickListener clickListener = new View.OnClickListener() {
@@ -91,5 +88,9 @@ public class CoverLetterActivity extends ActionBarActivity {
         mProspectiveJobButton = (Button) findViewById(R.id.prospective_employment_button);
         mReviewInfoButton = (Button) findViewById(R.id.review_information_button);
     }
+
+    /**
+     * Created by tchuinard on 3/9/15.
+     */
 
 }

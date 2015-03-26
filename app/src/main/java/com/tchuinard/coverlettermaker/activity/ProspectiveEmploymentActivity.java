@@ -1,19 +1,18 @@
-package com.tchuinard.coverlettermaker;
+package com.tchuinard.coverlettermaker.activity;
 
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 
-import com.tchuinard.coverlettermaker.service.CoverLetterService;
+import com.tchuinard.coverlettermaker.model.CoverLetter;
 import com.tchuinard.coverletterpro.R;
 
 /**
  * Created by tchuinard on 2/27/15.
  */
-public class ProspectiveEmploymentActivity extends ActionBarActivity {
+public class ProspectiveEmploymentActivity extends AbstractCoverLetterActivity {
 
     EditText mDesiredPosition;
     EditText mRecruiterName;
@@ -24,7 +23,6 @@ public class ProspectiveEmploymentActivity extends ActionBarActivity {
     Button mSaveProspectiveEmployment;
 
     CoverLetter mCoverLetter;
-    CoverLetterService mCoverLetterService;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,20 +32,19 @@ public class ProspectiveEmploymentActivity extends ActionBarActivity {
         bindViews();
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
 
-        mCoverLetterService = new CoverLetterService(getApplicationContext());
-        mCoverLetter = mCoverLetterService.loadEntireCoverLetter();
+        mCoverLetter = mService.loadEntireCoverLetter();
 
         setViews();
 
         mSaveProspectiveEmployment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mCoverLetter.setDesiredPosition(mCoverLetterService.convertEditTextoString(mDesiredPosition));
-                mCoverLetter.setRecruiterName(mCoverLetterService.convertEditTextoString(mRecruiterName));
-                mCoverLetter.setRecruiterEmail(mCoverLetterService.convertEditTextoString(mRecruiterEMail));
-                mCoverLetter.setJobSource(mCoverLetterService.convertEditTextoString(mJobSource));
-                mCoverLetter.setStartDate(mCoverLetterService.convertEditTextoString(mStartDate));
-                mCoverLetterService.saveCoverLetter(mCoverLetter);
+                mCoverLetter.setDesiredPosition(mService.convertEditTextoString(mDesiredPosition));
+                mCoverLetter.setRecruiterName(mService.convertEditTextoString(mRecruiterName));
+                mCoverLetter.setRecruiterEmail(mService.convertEditTextoString(mRecruiterEMail));
+                mCoverLetter.setJobSource(mService.convertEditTextoString(mJobSource));
+                mCoverLetter.setStartDate(mService.convertEditTextoString(mStartDate));
+                mService.saveCoverLetter(mCoverLetter);
                 finish();
             }
         });

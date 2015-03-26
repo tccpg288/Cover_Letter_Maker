@@ -1,20 +1,19 @@
-package com.tchuinard.coverlettermaker;
+package com.tchuinard.coverlettermaker.activity;
 
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 
-import com.tchuinard.coverlettermaker.service.CoverLetterService;
+import com.tchuinard.coverlettermaker.model.CoverLetter;
 import com.tchuinard.coverletterpro.R;
 
 
 /**
  * Created by tchuinard on 2/16/15.
  */
-public class ContactInformationActivity extends ActionBarActivity {
+public class ContactInformationActivity extends AbstractCoverLetterActivity {
 
     EditText mFirstName;
     EditText mLastName;
@@ -27,7 +26,6 @@ public class ContactInformationActivity extends ActionBarActivity {
     Button mSaveButton;
 
     CoverLetter mCoverLetter;
-    CoverLetterService mCoverLetterService;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,22 +37,21 @@ public class ContactInformationActivity extends ActionBarActivity {
 
         bindViews();
 
-        mCoverLetterService = new CoverLetterService(getApplicationContext());
-        mCoverLetter = mCoverLetterService.loadEntireCoverLetter();
+        mCoverLetter = mService.loadEntireCoverLetter();
 
         setViews();
 
         mSaveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mCoverLetter.setFirstName(mCoverLetterService.convertEditTextoString(mFirstName));
-                mCoverLetter.setLastName(mCoverLetterService.convertEditTextoString(mLastName));
-                mCoverLetter.setAddress(mCoverLetterService.convertEditTextoString(mAddress));
-                mCoverLetter.setCityState(mCoverLetterService.convertEditTextoString(mCityState));
-                mCoverLetter.setZipCode(mCoverLetterService.convertEditTextoString(mZipCode));
-                mCoverLetter.setPhoneNumber(mCoverLetterService.convertEditTextoString(mPhoneNumber));
-                mCoverLetter.setFaxNumber(mCoverLetterService.convertEditTextoString(mFaxNumber));
-                mCoverLetterService.saveCoverLetter(mCoverLetter);
+                mCoverLetter.setFirstName(mService.convertEditTextoString(mFirstName));
+                mCoverLetter.setLastName(mService.convertEditTextoString(mLastName));
+                mCoverLetter.setAddress(mService.convertEditTextoString(mAddress));
+                mCoverLetter.setCityState(mService.convertEditTextoString(mCityState));
+                mCoverLetter.setZipCode(mService.convertEditTextoString(mZipCode));
+                mCoverLetter.setPhoneNumber(mService.convertEditTextoString(mPhoneNumber));
+                mCoverLetter.setFaxNumber(mService.convertEditTextoString(mFaxNumber));
+                mService.saveCoverLetter(mCoverLetter);
                 finish();
                }
         });
@@ -73,12 +70,12 @@ public class ContactInformationActivity extends ActionBarActivity {
     }
 
     private void setViews() {
-        mFirstName.setText(mCoverLetter.mFirstName);
-        mLastName.setText(mCoverLetter.mLastName);
-        mPhoneNumber.setText(mCoverLetter.mPhoneNumber);
-        mAddress.setText(mCoverLetter.mAddress);
-        mCityState.setText(mCoverLetter.mCityState);
-        mZipCode.setText(mCoverLetter.mZipCode);
-        mFaxNumber.setText(mCoverLetter.mFaxNumber);
+        mFirstName.setText(mCoverLetter.getFirstName());
+        mLastName.setText(mCoverLetter.getLastName());
+        mPhoneNumber.setText(mCoverLetter.getPhoneNumber());
+        mAddress.setText(mCoverLetter.getAddress());
+        mCityState.setText(mCoverLetter.getCityState());
+        mZipCode.setText(mCoverLetter.getZipCode());
+        mFaxNumber.setText(mCoverLetter.getFaxNumber());
     }
 }

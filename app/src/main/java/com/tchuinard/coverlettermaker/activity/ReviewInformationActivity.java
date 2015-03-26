@@ -1,19 +1,17 @@
-package com.tchuinard.coverlettermaker;
+package com.tchuinard.coverlettermaker.activity;
 
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
 import android.widget.TextView;
 
-import com.tchuinard.coverlettermaker.service.CoverLetterService;
+import com.tchuinard.coverlettermaker.model.CoverLetter;
 import com.tchuinard.coverletterpro.R;
 
 /**
  * Created by tchuinard on 3/5/15.
  */
-public class ReviewInformationActivity extends ActionBarActivity {
+public class ReviewInformationActivity extends AbstractCoverLetterActivity {
 
     CoverLetter mCoverLetter;
-    CoverLetterService mCoverLetterService;
 
     TextView mSummaryFirstName;
     TextView mSummaryLastName;
@@ -40,8 +38,7 @@ public class ReviewInformationActivity extends ActionBarActivity {
         setContentView(R.layout.activity_review_information);
         bindViews();
 
-        mCoverLetterService = new CoverLetterService(getApplicationContext());
-        mCoverLetter = mCoverLetterService.loadEntireCoverLetter();
+        mCoverLetter = mService.loadEntireCoverLetter();
 
         setViews();
         }

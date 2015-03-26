@@ -1,19 +1,18 @@
-package com.tchuinard.coverlettermaker;
+package com.tchuinard.coverlettermaker.activity;
 
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 
-import com.tchuinard.coverlettermaker.service.CoverLetterService;
+import com.tchuinard.coverlettermaker.model.CoverLetter;
 import com.tchuinard.coverletterpro.R;
 
 /**
  * Created by tchuinard on 2/27/15.
  */
-public class EmploymentHistoryActivity extends ActionBarActivity {
+public class EmploymentHistoryActivity extends AbstractCoverLetterActivity {
 
     EditText mCurrentEmployer;
     EditText mCurrentPosition;
@@ -24,7 +23,6 @@ public class EmploymentHistoryActivity extends ActionBarActivity {
     Button mSaveData;
 
     public CoverLetter mCoverLetter;
-    public CoverLetterService mCoverLetterService;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,19 +32,18 @@ public class EmploymentHistoryActivity extends ActionBarActivity {
         bindViews();
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
 
-        mCoverLetterService = new CoverLetterService(getApplicationContext());
-        mCoverLetter = mCoverLetterService.loadEntireCoverLetter();
+        mCoverLetter = mService.loadEntireCoverLetter();
         setViews();
 
         mSaveData.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mCoverLetter.setCurrentEmployer(mCoverLetterService.convertEditTextoString(mCurrentEmployer));
-                mCoverLetter.setCurrentPosition(mCoverLetterService.convertEditTextoString(mCurrentPosition));
-                mCoverLetter.setCurrentSalary(mCoverLetterService.convertEditTextoString(mCurrentSalary));
-                mCoverLetter.setCurrentResponsibility(mCoverLetterService.convertEditTextoString(mCurrent_Responsibility));
-                mCoverLetter.setYearsExperience(mCoverLetterService.convertEditTextoString(mYearsExperience));
-                mCoverLetterService.saveCoverLetter(mCoverLetter);
+                mCoverLetter.setCurrentEmployer(mService.convertEditTextoString(mCurrentEmployer));
+                mCoverLetter.setCurrentPosition(mService.convertEditTextoString(mCurrentPosition));
+                mCoverLetter.setCurrentSalary(mService.convertEditTextoString(mCurrentSalary));
+                mCoverLetter.setCurrentResponsibility(mService.convertEditTextoString(mCurrent_Responsibility));
+                mCoverLetter.setYearsExperience(mService.convertEditTextoString(mYearsExperience));
+                mService.saveCoverLetter(mCoverLetter);
                 finish();
             }
         });

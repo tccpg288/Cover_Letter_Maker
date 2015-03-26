@@ -1,4 +1,4 @@
-package com.tchuinard.coverlettermaker;
+package com.tchuinard.coverlettermaker.model;
 
 /**
  * Created by tchuinard on 3/9/15.
